@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="submit">Create Todo</button>
+  </body>
+  <script>
+    const button = document.querySelector("button");
+    button.onclick = function () {
+      const form = document.createElement("form");
+      form.method = "post";
+      form.action = "save.php";
+      const input = document.createElement("input");
+      input.type = "text";
+      input.name = "task";
+      input.value = "my todo list";
+      form.appendChild(input);
+      form.style.visibility = "hidden";
+      document.body.appendChild(form);
+      form.submit();
+    };
+  </script>
+</html>
