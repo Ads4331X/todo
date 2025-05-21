@@ -204,3 +204,7 @@ li {
   background-color: transparent;
   border: none;
 }
+
+[data-icon="pen"][data-status="1"] {
+  display: none;
+}

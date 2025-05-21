@@ -153,7 +153,7 @@ if (isset($_GET['down_position'])) {
                         <div>
                         <a data-position ='{$row['position']}'  class='up_arrow $style_first_position' name='up' value='up' href='?up_position={$row['position']}'  ><i class='fa-solid fa-arrow-up'></i> </a>
                         <a class='down_arrow $style_last_position'  name='down' value='down' href='?down_position={$row['position']}' ><i class='fa-solid fa-arrow-down'></i></a>
-                        <a data-position = '{$row['position']}' data-status='{$row['status']}' data-task-id='{$row['id']}' data-task='{$row['task']}' onclick='onEdit(this)' class='edit' id='edit' href='?edit_id={$row['id']}'>                        
+                        <a data-position = '{$row['position']}' data-icon='pen' data-status='{$row['status']}' data-task-id='{$row['id']}' data-task='{$row['task']}' onclick='onEdit(this)' class='edit' id='edit' href='?edit_id={$row['id']}'>                        
                         <i class='fa-solid fa-pen' data-status='1'></i></a>
                         <a class='status-icon' name='completed' value='completed' href='?status_position={$row['position']}&status={$row['status']}&id='{$row['id']}>$status_text</a>
                         <a class='Delete' name='Delete' value='Delete' href='?delete_id={$row['id']}&delete_position={$row['position']}'><i class='fa-solid fa-trash'></i></a>
