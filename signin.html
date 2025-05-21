@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #info {
+      display: grid;
+      justify-content: center;
+      font: bold;
+      font-size: larger;
+      font-style: italic;
+    }
+
+    input,
+    button {
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    input {
+      border: 1px solid red;
+    }
+
+    button {
+      border: 1px solid white;
+      cursor: pointer;
+    }
+
+    h3 {
+      text-align: center;
+      font-weight: bold;
+      font-style: italic;
+      font-size: xx-large;
+    }
+  </style>
+
+  <body>
+    <form action="signin.php" method="post">
+      <h3>SIGN UP</h3>
+      <div id="info">
+        <label style="padding: 5px">&nbsp;&nbsp;Create A Username:</label>
+        <input
+          type="text"
+          name="Username"
+          id="Username"
+          placeholder="Username"
+        />
+        <br />
+        <label style="padding: 5px">Enter A Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+        /><br />
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </body>
+</html>

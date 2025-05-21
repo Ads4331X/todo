@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #info {
+      display: grid;
+      justify-content: center;
+      font: bold;
+      font-size: larger;
+      font-style: italic;
+    }
+    input,
+    button {
+      padding: 10px;
+      border-radius: 10px;
+    }
+    input {
+      border: 1px solid red;
+    }
+    button {
+      border: 1px solid white;
+      cursor: pointer;
+    }
+    label {
+      padding: 5px;
+    }
+    h3 {
+      text-align: center;
+      font-weight: bold;
+      font-style: italic;
+      font-size: xx-large;
+      margin-top: 40px;
+    }
+  </style>
+  <body>
+    <form method="post">
+      <h3>LOG IN</h3>
+      <div id="info">
+        <label>&nbsp;&nbsp;Username:</label>
+        <input
+          type="text"
+          name="Username"
+          id="Username"
+          placeholder="Username"
+        />
+        <label>Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+        /><br />
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </body>
+</html>

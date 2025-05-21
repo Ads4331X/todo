@@ -13,12 +13,18 @@ html {
 }
 
 #head {
-  padding: 10px;
+  display: flex;
   justify-content: center;
   text-align: center;
-  height: 70px;
   align-items: center;
+}
+
+.centerinput {
+  width: 500px;
+  padding: 10px;
+  height: 80px;
   border-radius: 10px;
+  text-align: center;
 }
 
 #task,
@@ -43,6 +49,7 @@ li {
 
 #Submit:active {
   background-color: rgb(165, 107, 224);
+  transform: scale(0.95);
 }
 
 #list {
@@ -56,7 +63,7 @@ li {
   margin-top: 2%;
 }
 
-#head {
+.centerinput {
   background-color: rgb(63, 54, 54);
 }
 
@@ -71,15 +78,129 @@ li {
   list-style: none;
 }
 
-.Delete {
-  text-decoration: none;
-}
-
 .task {
   color: inherit;
 }
 
 .completed {
   text-decoration: line-through;
+  transition-delay: 1s;
   color: rgba(154, 140, 140, 0.849);
+}
+
+.status-icon,
+.edit,
+.Delete,
+.up_arrow,
+.down_arrow {
+  text-decoration: none;
+  color: inherit;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.edit:hover,
+.Delete:hover,
+.status-icon:hover,
+.up_arrow:hover,
+.down_arrow:hover {
+  font-size: 14px;
+}
+
+.edit:active,
+.Delete:active,
+.status-icon:active,
+.up_arrow:active,
+.down_arrow:active {
+  font-size: x-small;
+}
+
+/* [data-status="1"] {
+  display: none;
+} */
+
+.last_position {
+  display: none;
+}
+
+.first_position {
+  display: none;
+}
+
+.tasks_width {
+  display: flex;
+  justify-content: center;
+}
+
+.center_tasks {
+  width: 500px;
+  height: 68px;
+}
+
+.zero_result {
+  text-align: center;
+  padding: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: large;
+}
+
+.task_process {
+  display: flex;
+  justify-content: center;
+}
+
+.process_of_task {
+  width: 494px;
+  margin: 4px;
+  margin-bottom: -10px;
+}
+
+.All_task,
+.Completed_task,
+.Pending_task {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.Sign_out {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 30px;
+  color: white;
+  background-color: red;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  border: transparent;
+}
+
+.Sign_out:hover {
+  background-color: rgb(219, 63, 63);
+}
+
+.Sign_out:active {
+  background-color: #ff0000;
+  transform: scale(0.98);
+}
+
+.Sign_out_right {
+  display: flex;
+  justify-content: right;
+  margin-top: -10px;
+  margin-right: -12px;
+}
+
+#All_task {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: lightskyblue;
+  color: rgb(0, 200, 255);
+}
+
+.tab {
+  padding-top: 1rem;
+  background-color: transparent;
+  border: none;
 }
