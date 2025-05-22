@@ -4,7 +4,7 @@ session_start();
 $name = $_SESSION["username"];
 $user_id = $_SESSION['user_id'];
 echo "<form method ='POST'><div class='Sign_out_right'><button class='Sign_out' name = 'SignOut'>Sign Out</button></div></form>";
-echo "<h1 style='text-align: center;'>$name's Todo's</h1><br> ";
+echo "<h1 style='text-align: center;'>$name's Todo</h1><br> ";
 if ($_SESSION["username"] == "") {
     session_destroy();
     setcookie("PHPSESSID", "");
@@ -163,7 +163,7 @@ if (isset($_GET['down_position'])) {
                 }
             }
         } else {
-            echo "<div class = 'zero_result'>0 results</div>";
+            echo "<br><div class = 'zero_result'>0 results</div>";
         }
         ?>
     </ul>

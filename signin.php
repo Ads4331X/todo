@@ -1,4 +1,3 @@
-
 <?php
 include 'connection.php';
 
@@ -14,3 +13,4 @@ if (!empty($username) & !empty($password)) {
     echo 'enter all the details';
     header(header: "Location: signin.html");
 }
+?>
