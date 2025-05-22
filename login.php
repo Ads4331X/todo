@@ -30,6 +30,8 @@ session_start(); ?>
         border-radius: 10px;
         padding-bottom: 20px;
         font: large;
+        font-size: 16px;
+
     }
 
     #Username {

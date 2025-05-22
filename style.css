@@ -62,6 +62,9 @@ li {
   align-self: center;
   margin-top: 2%;
 }
+input {
+  font-size: 16px;
+}
 
 .centerinput {
   background-color: rgb(63, 54, 54);
