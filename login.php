@@ -164,7 +164,7 @@ session_start(); ?>
                         name='LOGIN_password'
                         id='password'
                         placeholder='Password' required />
-                    <div class="a_tag"><a href='signin.html'>Create an account</a></div>
+                    <div class="a_tag"><a href='signin.php'>Create an account</a></div>
                     <button type='submit'>Login</button>
                     <br><br>
                 </div>
