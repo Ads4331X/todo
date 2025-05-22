@@ -1,4 +1,5 @@
-<?php include 'connection.php'; ?>
+<?php include 'connection.php';
+session_start(); ?>
 
 
 <!DOCTYPE html>
@@ -124,7 +125,6 @@
         display: flex;
         justify-content: center;
         text-align: center;
-        background-color: none;
     }
 
     #info {
@@ -134,7 +134,6 @@
         border-radius: 18px;
         box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
         align-self: center;
-        background-color: none;
     }
 
     .inside_data {
@@ -176,7 +175,6 @@
 </html>
 <?php
 
-session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

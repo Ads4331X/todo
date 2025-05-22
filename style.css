@@ -104,7 +104,9 @@ li {
 .status-icon:hover,
 .up_arrow:hover,
 .down_arrow:hover {
-  font-size: 14px;
+  background-color: rgb(80, 70, 70);
+  border-radius: 15px;
+  transform: scale(0.95);
 }
 
 .edit:active,
@@ -112,12 +114,10 @@ li {
 .status-icon:active,
 .up_arrow:active,
 .down_arrow:active {
-  font-size: x-small;
+  background-color: rgb(45, 38, 38); /* Slightly darker for active */
+  transform: scale(0.98);
+  border-radius: 15px;
 }
-
-/* [data-status="1"] {
-  display: none;
-} */
 
 .last_position {
   display: none;

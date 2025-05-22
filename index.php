@@ -1,5 +1,5 @@
-<?php include 'data.php' ?>
-<?php
+<?php include 'data.php';
+
 session_start();
 $name = $_SESSION["username"];
 $user_id = $_SESSION['user_id'];
@@ -89,7 +89,7 @@ if (isset($_GET['down_position'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ToDo</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -134,13 +134,16 @@ if (isset($_GET['down_position'])) {
                 if ($user_id == $row['user_id']) {
                     $is_completed = $row["status"] ? "Completed" : "Pending";
                     $completed_class = $row['status'] ? 'completed' : '';
+                    $style_first_position = ($row['position'] == 1) ? 'first_position' : '';
                     $status_text =  $row["status"] ? "<i class='fa-regular fa-circle-check'></i>" : "<i class='fa-regular fa-circle'></i>";
                     if ($last_position != 1) {
                         $style_last_position = ($row['position'] == $last_position) ? 'last_position' : '';
+                    } else if ($row['position'] == 1 & $last_position == 1) {
+                        $style_last_position = 'last_position';
+                        $style_first_position = 'first_position';
                     } else {
                         $style_last_position = ($row['position'] == $last_position) ? '' : '';
                     }
-                    $style_first_position = ($row['position'] == 1) ? 'first_position' : '';
                     echo "<div class='tasks_width' todo-item-status='{$row['status']}'>
                      <div class='center_tasks'>
                      <li class='todo-item ' data-status='{$row['status']}'>
