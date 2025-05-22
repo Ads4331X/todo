@@ -72,6 +72,7 @@ session_start(); ?>
 
     button:active {
         color: whitesmoke;
+        transform: scale(0.98);
     }
 
     label {
