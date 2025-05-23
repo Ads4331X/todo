@@ -1,5 +1,51 @@
 <?php include 'connection.php';
-session_start(); ?>
+session_start();
+$message = '';
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $result = mysqli_query($conn, "SELECT username , pass , user_id from user");
+    $LOGIN_USERNAME = $_POST['LOGIN_Username'];
+    $LOGIN_PASSWORD = $_POST['LOGIN_password'];
+    $info = 'Please fill the info';
+    $login_sucessful = false;
+
+    if ($LOGIN_PASSWORD == '' & $LOGIN_USERNAME == '') {
+        echo "<div class='empty_info empty'>Please Enter Your Username and Password </div>";
+        $info = '';
+    } else if ($LOGIN_PASSWORD == '') {
+        echo "<div class='empty_password empty'>Please Enter Your Password </div>";
+        $info = '';
+    } else if ($LOGIN_USERNAME == '') {
+        echo "<div class = 'empty empty_username'>Please Enter Your Username</div>";
+        $info = '';
+    } else {
+        if ($result->num_rows > 0) {
+            if (!empty($LOGIN_USERNAME) & !empty($LOGIN_PASSWORD)) {
+                while ($row = $result->fetch_assoc()) {
+                    if ($row['username'] === $LOGIN_USERNAME && $row['pass'] === $LOGIN_PASSWORD) {
+                        $_SESSION['user_id'] = $row['user_id'];
+                        $_SESSION['username'] = $LOGIN_USERNAME;
+                        echo "<div class='logined'>LOGIN-ED SUCCESSFULLY </div>";
+                        $login_sucessful = true;
+                        header("Location: index.php");
+                        exit();
+                    }
+                }
+            }
+        }
+        if (!$login_sucessful) {
+            echo "<div class='Error'>Enter the correct info</div>";
+        }
+    }
+}
+
+?>
 
 
 <!DOCTYPE html>
@@ -21,9 +67,6 @@ session_start(); ?>
         touch-action: manipulation;
     }
 
-
-
-
     input,
     button {
         padding: 10px;
@@ -31,7 +74,6 @@ session_start(); ?>
         padding-bottom: 20px;
         font: large;
         font-size: 16px;
-
     }
 
     #Username {
@@ -51,9 +93,6 @@ session_start(); ?>
         margin-bottom: 4px;
 
     }
-
-
-
 
     button {
         background-color: #007BFF;
@@ -99,9 +138,9 @@ session_start(); ?>
     }
 
     .a_tag {
-        display: grid;
+        display: flex;
         width: 280px;
-        justify-content: right;
+        justify-content: space-between;
 
     }
 
@@ -113,6 +152,14 @@ session_start(); ?>
         font-style: italic;
         font: bolder;
         margin: -60px;
+        transition: opacity 1s ease-out;
+
+    }
+
+    .changed {
+        color: limegreen;
+        position: relative;
+
     }
 
     .logined {
@@ -142,6 +189,16 @@ session_start(); ?>
     .inside_data {
         padding: 10px;
     }
+
+    hr {
+        width: 300px;
+        margin: auto;
+        margin-top: -1vh;
+    }
+
+    .forget {
+        margin: auto 16%;
+    }
 </style>
 
 
@@ -164,9 +221,15 @@ session_start(); ?>
                         name='LOGIN_password'
                         id='password'
                         placeholder='Password' required />
-                    <div class="a_tag"><a href='signin.php'>Create an account</a></div>
+                    <div class="a_tag">
+                        <a class="forget" href="forget_password.php">Forget Password</a>
+                        <a href='signin.php'>Create an account</a>
+                    </div><br>
+                    <hr>
                     <button type='submit'>Login</button>
                     <br><br>
+                    <div id="flashMessage"><?php echo $message; ?></div>
+
                 </div>
             </form>
         </div>
@@ -176,46 +239,11 @@ session_start(); ?>
 </body>
 
 </html>
-<?php
-
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $result = mysqli_query($conn, "SELECT username , pass , user_id from user");
-    $LOGIN_USERNAME = $_POST['LOGIN_Username'];
-    $LOGIN_PASSWORD = $_POST['LOGIN_password'];
-    $info = 'Please fill the info';
-    $login_sucessful = false;
-
-    if ($LOGIN_PASSWORD == '' & $LOGIN_USERNAME == '') {
-        echo "<div class='empty_info empty'>Please Enter Your Username and Password </div>";
-        $info = '';
-    } else if ($LOGIN_PASSWORD == '') {
-        echo "<div class='empty_password empty'>Please Enter Your Password </div>";
-        $info = '';
-    } else if ($LOGIN_USERNAME == '') {
-        echo "<div class = 'empty empty_username'>Please Enter Your Username</div>";
-        $info = '';
-    } else {
-        if ($result->num_rows > 0) {
-            if (!empty($LOGIN_USERNAME) & !empty($LOGIN_PASSWORD)) {
-                while ($row = $result->fetch_assoc()) {
-                    if ($row['username'] === $LOGIN_USERNAME && $row['pass'] === $LOGIN_PASSWORD) {
-                        $_SESSION['user_id'] = $row['user_id'];
-                        $_SESSION['username'] = $LOGIN_USERNAME;
-                        echo "<div class='logined'>LOGIN-ED SUCCESSFULLY </div>";
-                        $login_sucessful = true;
-                        header("Location: index.php");
-                        exit();
-                    }
-                }
-            }
-        }
-        if (!$login_sucessful) {
-            echo "<div class='Error'>Enter the correct info</div>";
-        }
+<script>
+    const flashMessage = document.getElementById('flashMessage');
+    if (flashMessage) {
+        setTimeout(function() {
+            flashMessage.style.display = 'none'
+        }, 2000)
     }
-}
-
-
-?>
+</script>

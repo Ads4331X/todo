@@ -41,6 +41,7 @@ li {
   cursor: pointer;
   color: white;
   background-color: rebeccapurple;
+  flex-shrink: 0;
 }
 
 #Submit:hover {
@@ -117,7 +118,7 @@ input {
 .status-icon:active,
 .up_arrow:active,
 .down_arrow:active {
-  background-color: rgb(45, 38, 38); /* Slightly darker for active */
+  background-color: rgb(45, 38, 38);
   transform: scale(0.98);
   border-radius: 15px;
 }

@@ -6,9 +6,8 @@ $user_id = $_SESSION['user_id'];
 echo "<form method ='POST'><div class='Sign_out_right'><button class='Sign_out' name = 'SignOut'>Sign Out</button></div></form>";
 echo "<h1 style='text-align: center;'>$name's Todo</h1><br> ";
 if ($_SESSION["username"] == "") {
-    session_destroy();
     setcookie("PHPSESSID", "");
-    header("Location: login.php");
+    header("Location: form.html");
     exit();
 }
 

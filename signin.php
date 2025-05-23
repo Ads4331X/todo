@@ -6,6 +6,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SignIn</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <style>
   #data {
@@ -93,11 +95,19 @@
   .error_input {
     border: 2px solid red;
     border: 2px solid red !important;
-    /* Makes the border red */
-    /* Optional: You might want a light red background too */
     background-color: #ffe6e6;
-    /* Optional: A subtle red shadow */
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+
+  }
+
+  .to_go_back {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    padding-left: 10px;
+    margin-top: -1%;
+    font: xx-small;
+    font-size: 12px;
 
   }
 </style>
@@ -135,10 +145,16 @@
           <button type="submit">SIGN IN</button>
           <br />
           <br />
+
           <div class="a_tag_div">
             <p class="to_log_in">Already Have An Account?</p>
             <a class="to_log_in" href="login.php">LogIn</a>
           </div>
+
+        </div>
+        <div class="to_go_back">
+          <a href="form.html"><i class="fa-solid fa-arrow-left-long"></i>
+          </a> &nbsp;&nbsp;Go Back
         </div>
       </form>
     </div>

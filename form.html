@@ -6,24 +6,60 @@
     <title>Form</title>
   </head>
   <style>
-    #auth {
+    .auth {
       display: flex;
       justify-content: center;
-      cursor: pointer;
-      margin-top: 30px;
+      align-items: center;
+      margin-top: 16%;
       font: xx-large;
       font-weight: bold;
       font-style: italic;
+      box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.5);
+      width: 300px;
+      height: 60vh;
+      background-color: rgb(50, 90, 120);
     }
+
     a {
       text-decoration: none;
       text-align: center;
-      align-content: center;
+      padding: 1rem;
+      border-radius: 80px;
+      cursor: pointer;
+      color: white;
+      background-color: rgb(100, 160, 200);
+    }
+
+    a:hover {
+      color: wheat;
+      background-color: rgb(80, 110, 140);
+    }
+    a:active {
+      color: whitesmoke;
+      transform: scale(0.85);
+      background-color: rgb(40, 70, 100);
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+      background-color: rgb(50, 90, 120);
+    }
+
+    .todo {
+      position: absolute;
+      margin-top: -16%;
+      font-size: 50px;
+      color: aliceblue;
+      font-family: "Courier New", Courier, monospace;
     }
   </style>
   <body>
-    <div id="auth">
-      <a href="signin.html">SIGN UP</a>
+    <div class="auth">
+      <p class="todo">ADS-TODO</p>
+      <a href="signin.php">SIGN UP</a>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="login.php">LOG IN</a>
     </div>
