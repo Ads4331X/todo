@@ -33,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <title>Forget Password</title>
 </head>
 
@@ -50,9 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   .error {
     color: red;
   }
-
-
-
 
   input,
   button {
@@ -153,6 +152,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     margin: auto;
     margin-top: -1vh;
   }
+
+  .to_go_back {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    padding-left: 10px;
+    margin-top: -1%;
+    font: xx-small;
+    font-size: 12px;
+  }
+
+  .fa-solid:active {
+    font-size: 16px;
+    color: darkblue;
+  }
 </style>
 
 <body>
@@ -179,7 +193,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <button type='submit'>Login</button>
           <br><br>
           <?php echo $message;  ?>
+          <div class="to_go_back">
+            <a href="login.php"><i class="fa-solid fa-arrow-left-long"></i>
+            </a> &nbsp;&nbsp;Go Back
+          </div>
         </div>
+
       </form>
     </div>
   </div>
